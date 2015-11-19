@@ -1,0 +1,11 @@
+function loadData(){
+	$('ul').children('li').remove();
+	$.getJSON("./data/bookmarks.json",function(content,status){
+	//$.getJSON("https://github.com/sunyanan891114/homework4/blob/gh-pages/resource/bookmarks.json",function(content,status){
+		for(var i in content){
+			$(".list").append("<li><div class='list_content'>"
+				+ content[i]["title"]+"</div><div class='list_time'>@created &nbsp"
+				+ formatDate(content[i]["created"])+"</div></li>");
+		}
+	});
+}

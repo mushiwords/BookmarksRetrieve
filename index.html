@@ -1,1 +1,22 @@
-This is empty file.
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="stylesheet/mystyle.css" media="screen">
+<script type="text/javascript" src="script/funtion.js"></script>
+<script type="text/javascript" src="script/jquery-2.1.4.min.js">
+</script> 
+<script type="text/javascript">
+    $(document).ready(function(e) {
+    $.getJSON( "data/bookmarks.json" , function( result ){
+        alert(result.start.count);
+    });
+});
+</script>
+
+</head>
+<body>
+<header>
+<h3 class="title">书签关键字</h3>
+<input type="text"  class="search" value="Search...">
+</header>
+</body>
+</html>
