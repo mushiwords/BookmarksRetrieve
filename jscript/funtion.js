@@ -1,6 +1,35 @@
 window.onload=function(){
 
 	loadData();
+	$(".search")
+		.bind('keyup',function(event) {
+			$(this).css({
+					color: '#4499ee'
+				});
+			$(".list_content").map(function(index, val) {
+				var temp = this.innerHTML.replace(/<.*?>/ig,"");	
+				this.innerHTML = temp;
+			});
+			var keywords = this.value;
+			if(this.value !=""){
+				var keywordRE = new RegExp("(" + keywords + ")", "ig");
+				$(".list_content").each(function(){	
+					var text = this.innerHTML.toLocaleString();				
+					if(text.match(keywordRE)){
+						console.log(text);
+						var highlightedText = text.replace(keywordRE, "<span class='highlight'>$1</span>");							
+						this.innerHTML = highlightedText;
+						var $li = $(this).parent("li").show();
+					}
+					else{
+						var $li = $(this).parent("li").hide();	
+					}
+				});
+			}
+			else{
+				$("li").show();
+			}
+		});
 }
 
 function loadData(){
