@@ -1,27 +1,19 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="stylesheet/mystyle.css" media="screen">
-<script type="text/javascript" src="script/funtion.js"></script>
+
 <script type="text/javascript" src="script/jquery-2.1.4.min.js">
 </script> 
-<script type="text/javascript">
-    $(document).ready(function(e) {
-    $.getJSON( "./data/bookmarks.json" , function( result ){
-        alert(result.start.count);
-    });
-});
-</script>
-
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="script/funtion.js"></script>
 </head>
-<body>
+<body onload="loadData()">
 <header>
 <h3 class="title">书签关键字</h3>
-<input type="text"  class="search" placeholder="Search...">
+<input type="text"  class="search" placeholder="KeyWords">
 </header>
-    <div class="container">
-  	   <ul class="list">
-	   <li>hello</li>
-	   </ul>
+	<div id="content_id" class="BookmarkContainer">
+  	   
 	</div>
 </body>
 </html>
